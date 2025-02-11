@@ -45,7 +45,7 @@ class RouteQuery(BaseModel):
     )
 
 
-llm = ChatGroq(model="llama3-8b-8192", api_key="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")
+llm = ChatGroq(model="llama3-8b-8192", api_key=os.environ["GROQ_API_KEY"])
 structured_llm_router = llm.with_structured_output(RouteQuery)
 system = """
       You are an expert dish recommendation router. Analyze user questions and route them to the most appropriate resource:
@@ -147,7 +147,7 @@ app = workflow.compile(checkpointer=memory)
 api = Flask(__name__)
 CORS(api)
 
-groq_client = Groq(api_key="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")
+groq_client = Groq(api_key=os.environ["GROQ_API_KEY"])
 
 
 @api.route("/chat/", methods=["POST"])
