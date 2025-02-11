@@ -11,3 +11,4 @@ typing-extensions
 openai
 python-dotenv
 google-generativeai
+gunicorn
