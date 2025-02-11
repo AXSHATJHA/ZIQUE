@@ -12,3 +12,4 @@ openai
 python-dotenv
 google-generativeai
 gunicorn
+wikipedia
