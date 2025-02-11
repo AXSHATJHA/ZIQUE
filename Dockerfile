@@ -31,7 +31,7 @@ COPY . .
 ENV PATH="/opt/venv/bin:$PATH"
 
 # Expose port 8000
-EXPOSE 8000
+EXPOSE 10000
 
 # Run the Flask application with Gunicorn
-CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:8000", "app:api"]
+CMD exec gunicorn -w 4 -b 0.0.0.0:$PORT app:api
